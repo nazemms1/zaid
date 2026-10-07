@@ -1,0 +1,151 @@
+.outerScrollContainer {
+  position: relative;
+  width: 100%;
+  height: 850vh;
+  /* Provides plenty of smooth scroll distance */
+  background: var(--bg-main);
+}
+
+.stickyViewport {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg-main);
+}
+
+.horizontalTrack {
+  display: flex;
+  height: 100vh;
+  width: max-content;
+  will-change: transform;
+  transition: transform 0.08s ease-out;
+  /* Super snappy and smooth */
+}
+
+/* Individual Slide Dimensions */
+.slide {
+  height: 100vh;
+  width: 100vw;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 60px 80px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Wide Slides (For Multi-card galleries) */
+.slideWide {
+  height: 100vh;
+  width: 150vw;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 60px 80px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.slideUltraWide {
+  height: 100vh;
+  width: 180vw;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 60px 80px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Bottom Floating Navigation Dock */
+.bottomNav {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  z-index: 90;
+  background: rgba(14, 16, 22, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 10px 24px;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.progressBarContainer {
+  width: 140px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: var(--accent-gold);
+  border-radius: 2px;
+  transition: width 0.15s ease-out;
+}
+
+.navArrowBtn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.navArrowBtn:hover {
+  background: var(--accent-gold);
+  color: #000;
+  border-color: var(--accent-gold);
+}
+
+.scrollHint {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 900px) {
+
+  .slide,
+  .slideWide,
+  .slideUltraWide {
+    padding: 85px 20px 75px;
+    width: 100vw;
+  }
+
+  .bottomNav {
+    bottom: 12px;
+    padding: 8px 16px;
+    gap: 12px;
+  }
+
+  .progressBarContainer {
+    width: 80px;
+  }
+
+  .scrollHint {
+    display: none;
+  }
+}

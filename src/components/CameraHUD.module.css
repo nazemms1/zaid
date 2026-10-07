@@ -1,0 +1,328 @@
+.hudOverlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  overflow: hidden;
+}
+
+/* Four Corner Crop Brackets */
+.cornerTL, .cornerTR, .cornerBL, .cornerBR {
+  position: fixed;
+  width: 28px;
+  height: 28px;
+  border-color: rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+  z-index: 51;
+  transition: var(--transition-smooth);
+}
+
+.cornerTL {
+  top: 18px;
+  left: 18px;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+
+.cornerTR {
+  top: 18px;
+  right: 18px;
+  border-top: 2px solid;
+  border-right: 2px solid;
+}
+
+.cornerBL {
+  bottom: 18px;
+  left: 18px;
+  border-bottom: 2px solid;
+  border-left: 2px solid;
+}
+
+.cornerBR {
+  bottom: 18px;
+  right: 18px;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+}
+
+/* Framing Grid Lines */
+.gridOverlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+  opacity: 0.18;
+}
+
+.ruleOfThirds {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  height: 100%;
+  width: 100%;
+}
+
+.ruleOfThirds > div {
+  border: 1px dashed rgba(255, 255, 255, 0.6);
+}
+
+/* Center Crosshair */
+.centerCrosshair {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+  z-index: 45;
+  opacity: 0.35;
+  transition: opacity 0.3s ease;
+}
+
+.centerCrosshair::before,
+.centerCrosshair::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.centerCrosshair::before {
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  transform: translateY(-50%);
+}
+
+.centerCrosshair::after {
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform: translateX(-50%);
+}
+
+.centerCircle {
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+}
+
+/* Top Viewfinder Bar */
+.topBar {
+  position: fixed;
+  top: 14px;
+  left: 54px;
+  right: 54px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: auto;
+  z-index: 52;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-secondary);
+  background: rgba(10, 12, 16, 0.65);
+  backdrop-filter: blur(12px);
+  padding: 6px 16px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.topBarLeft, .topBarCenter, .topBarRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.recBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #ff3344;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.recDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff3344;
+  animation: recBlink 1.2s infinite;
+}
+
+.vuMeter {
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+  height: 14px;
+}
+
+.vuBar {
+  width: 3px;
+  background: var(--accent-gold);
+  border-radius: 1px;
+}
+
+.vuBar:nth-child(1) { animation: vuMeter 0.9s infinite alternate; }
+.vuBar:nth-child(2) { animation: vuMeter 1.1s infinite alternate 0.2s; }
+.vuBar:nth-child(3) { animation: vuMeter 0.8s infinite alternate 0.4s; }
+
+/* Bottom Floating Camera Control Dock */
+.bottomDock {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  pointer-events: auto;
+  z-index: 55;
+  background: rgba(10, 12, 16, 0.85);
+  backdrop-filter: blur(20px);
+  padding: 8px 18px;
+  border-radius: 40px;
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7), 0 0 20px rgba(197, 160, 89, 0.15);
+}
+
+.dockGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dockDivider {
+  width: 1px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.dockButton {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.dockButton:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dockButtonActive {
+  color: var(--accent-gold-bright) !important;
+  border-color: rgba(197, 160, 89, 0.6) !important;
+  background: rgba(197, 160, 89, 0.12) !important;
+}
+
+/* Shutter Trigger Button */
+.shutterButton {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f8fafc 0%, #cbd5e1 70%, #94a3b8 100%);
+  border: 3px solid #1e293b;
+  cursor: pointer;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+.shutterButton:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.shutterButton:active {
+  transform: scale(0.92);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.shutterInnerRing {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0, 0, 0, 0.4);
+}
+
+/* Focus Pull Slider Container */
+.focusPuller {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.focusSlider {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 76px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.focusSlider::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  cursor: pointer;
+  box-shadow: 0 0 6px rgba(197, 160, 89, 0.8);
+}
+
+/* Flash Screen Overlay */
+.flashOverlay {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  pointer-events: none;
+  z-index: 10000;
+  opacity: 0;
+}
+
+@media (max-width: 900px) {
+  .topBar {
+    left: 12px;
+    right: 12px;
+    font-size: 9px;
+    padding: 4px 10px;
+    gap: 6px;
+  }
+  .topBarCenter {
+    display: none;
+  }
+  .bottomDock {
+    bottom: 12px;
+    padding: 6px 12px;
+    gap: 6px;
+    max-width: 95vw;
+    overflow-x: auto;
+  }
+  .focusPuller {
+    display: none;
+  }
+}

@@ -1,0 +1,200 @@
+.sectionWrapper {
+  position: relative;
+  padding: 100px 24px;
+  background: #06070a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headerArea {
+  text-align: center;
+  max-width: 700px;
+  margin-bottom: 40px;
+}
+
+.tagline {
+  color: var(--accent-gold);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: clamp(2rem, 3.8vw, 2.8rem);
+  font-weight: 800;
+  color: #fff;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-top: 10px;
+}
+
+/* Hollywood Production Clapperboard Slate */
+.clapperSlate {
+  width: 100%;
+  max-width: 760px;
+  background: #0d1017;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.95), 0 0 30px rgba(197, 160, 89, 0.1);
+  overflow: hidden;
+}
+
+/* Top Clapper Stick */
+.clapperHinge {
+  position: relative;
+  height: 48px;
+  background: repeating-linear-gradient(
+    -45deg,
+    #ffffff,
+    #ffffff 22px,
+    #12141c 22px,
+    #12141c 44px
+  );
+  border-bottom: 3px solid #000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hingeNut {
+  position: absolute;
+  left: 16px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #718096;
+  border: 2px solid #2d3748;
+}
+
+[dir="rtl"] .hingeNut {
+  left: auto;
+  right: 16px;
+}
+
+/* Clapperboard Slate Fields Grid */
+.slateBody {
+  padding: 32px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.fieldsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.fieldItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fieldItemFull {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fieldLabel {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent-gold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.inputControl, .selectControl, .textareaControl {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px 14px;
+  color: #fff;
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+.inputControl:focus, .selectControl:focus, .textareaControl:focus {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 10px rgba(197, 160, 89, 0.25);
+}
+
+.textareaControl {
+  min-height: 90px;
+  resize: vertical;
+}
+
+/* Submit Action Button */
+.submitBtn {
+  background: var(--accent-gold);
+  color: #000;
+  border: none;
+  padding: 15px 28px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 25px rgba(197, 160, 89, 0.35);
+}
+
+.submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(197, 160, 89, 0.55);
+}
+
+/* Direct Contacts Row */
+.directContacts {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+.contactBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.contactBadge:hover {
+  color: #fff;
+  border-color: var(--accent-gold);
+  background: rgba(197, 160, 89, 0.1);
+}
+
+@media (max-width: 700px) {
+  .fieldsGrid {
+    grid-template-columns: 1fr;
+  }
+  .slateBody {
+    padding: 20px;
+  }
+}

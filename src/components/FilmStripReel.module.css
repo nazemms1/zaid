@@ -1,0 +1,132 @@
+.sectionWrapper {
+  position: relative;
+  padding: 60px 0;
+  background: #050608;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.headerText {
+  text-align: center;
+  padding: 0 24px;
+  margin-bottom: 30px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent-gold);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.title {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Horizontal 35mm Film Roll Track */
+.filmTrackWrapper {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  padding: 20px 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+}
+
+.filmTrackWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.filmStrip {
+  display: flex;
+  background: #090a0d;
+  border-top: 3px solid #1a1e28;
+  border-bottom: 3px solid #1a1e28;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.95);
+  padding: 0 40px;
+  gap: 16px;
+  width: max-content;
+}
+
+/* Single 35mm Film Frame */
+.filmFrame {
+  display: flex;
+  flex-direction: column;
+  background: #0e1117;
+  padding: 10px 8px;
+  border-left: 1px dashed rgba(255, 255, 255, 0.12);
+  border-right: 1px dashed rgba(255, 255, 255, 0.12);
+  position: relative;
+  width: 320px;
+  user-select: none;
+  transition: transform 0.25s ease;
+}
+
+.filmFrame:hover {
+  transform: translateY(-4px);
+}
+
+/* Sprocket Holes Row */
+.sprocketsRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 6px;
+  height: 22px;
+}
+
+.sprocketHole {
+  width: 11px;
+  height: 14px;
+  background: #050608;
+  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.edgeCode {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: #c5a059;
+  letter-spacing: 0.15em;
+  opacity: 0.85;
+  display: flex;
+  align-items: center;
+}
+
+/* Image Inside Negative Frame */
+.imageBox {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #000;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}
+
+.frameImage {
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.imageBox:hover .frameImage {
+  transform: scale(1.05);
+}
+
+.frameFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 4px 2px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+}

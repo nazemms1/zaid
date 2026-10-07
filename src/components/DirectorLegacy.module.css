@@ -1,0 +1,140 @@
+.sectionWrapper {
+  position: relative;
+  padding: 100px 24px;
+  background: radial-gradient(circle at 50% 30%, #10141f 0%, #06070a 80%);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.legacyGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  max-width: 1240px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.heritageTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent-gold);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.mainHeading {
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+}
+
+.descriptionParagraph {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.quoteBox {
+  padding: 20px 24px;
+  border-radius: 12px;
+  background: rgba(197, 160, 89, 0.08);
+  border-left: 3px solid var(--accent-gold);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--accent-gold-bright);
+}
+
+[dir="rtl"] .quoteBox {
+  border-left: none;
+  border-right: 3px solid var(--accent-gold);
+}
+
+/* Hubs List */
+.hubsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.hubPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #cbd5e1;
+}
+
+/* Right Column: Gear Arsenal */
+.rightCol {
+  background: #0d1017;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 32px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+.gearHeading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+}
+
+.gearGroup {
+  margin-bottom: 24px;
+}
+
+.gearCategoryTitle {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.gearList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.gearItem {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gearItem::before {
+  content: "•";
+  color: var(--accent-cyan);
+}
+
+@media (max-width: 900px) {
+  .legacyGrid {
+    grid-template-columns: 1fr;
+  }
+}
